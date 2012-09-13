@@ -17,7 +17,6 @@ class Browser
 
     # Create a button widget
     browser = Swt::Browser.new(@shell, Swt::SWT::PUSH)
-    # file_path = File.expand_path(File.join(File.dirname(__FILE__),"../public/map.html"))
     browser.setUrl('http://localhost:4567')
   
     # And this displays the Shell
