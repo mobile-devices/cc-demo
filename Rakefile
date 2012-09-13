@@ -19,7 +19,12 @@ task :init do
     "sinatra",
     "rack",
     "rack-protection",
-    "tilt"
+    "tilt",
+    "therubyrhino",
+    "multi_json",
+    "execjs",
+    "coffee-script-source",
+    "coffee-script",
   ]
 
   gems.each do |gem_name|

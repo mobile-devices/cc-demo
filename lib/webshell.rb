@@ -7,6 +7,11 @@ module WebShell
     $:.push(File.expand_path("../../vendor/rack/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/rack-protection/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/sinatra/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/therubyrhino/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/multi_json/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/execjs/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/coffee-script-source/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/coffee-script/lib", __FILE__))
   
     require 'swt'  
   end
