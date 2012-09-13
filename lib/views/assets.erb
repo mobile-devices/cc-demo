@@ -1,0 +1,9 @@
+<script type="text/x-handlebars">
+	{{#view Ember.Button target="App.assetsController" action="loadAssets"}}
+		Load Assets
+	{{/view}}
+
+	{{#collection contentBinding="App.assetsController" tagName="ul"}}
+		<b>{{content.imei}}</b> - {{content.name}}, <i>{{content.serial}}</i>
+	{{/collection}}
+</script>
