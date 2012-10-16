@@ -20,9 +20,10 @@ App.messagesController = Em.ArrayController.create({
   # loadMessages action is binded to the button
   loadMessages: ->
     self = this
+    self.clear()
     # ajax request to ask Apiv3
     $.ajax({
-    # GET request (see documentation)
+      # GET request (see documentation)
       url:  App.baseUrl('messages'),
       dataType: 'jsonp',
       data: "",
