@@ -1,0 +1,38 @@
+<script type="text/x-handlebars">
+
+	{{#view App.messagesViewController}}
+		<button {{action "loadMessages" target="App.messagesController"}}>
+	    	{{view.buttonName}}
+	    </button>
+    {{/view}}
+
+	<br />
+
+    <table class="data search_cloud_connect_message">
+    	<colgroup>
+			<col class="message">
+			<col class="thread_id">
+			<col class="length">
+			<col class="received_at">
+		</colgroup>
+		<thead>
+			<tr>
+				<th> Message </th>
+				<th> Thread » Id ↓ </th>
+				<th> Length </th>
+				<th> Received At </th>
+			</tr>
+		</thead>
+		<tbody>
+		{{#each App.messagesController}}
+			<tr class="mongoid_tenants_testssl_cloud_connect_message">
+			  <td class="message">{{channel}} {{payload}}</td>
+			  <td class="thread_id">{{thread_id}}</td>
+			  <td class="length">{{length}}</td>
+			  <td class="received_at">{{received_at}}</td>
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+
+</script>
