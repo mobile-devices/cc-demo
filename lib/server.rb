@@ -4,6 +4,8 @@ require 'sinatra/base'
 require 'coffee-script'
 require 'execjs'
 
+require 'sprockets'
+
 class Server < Sinatra::Base
   get '/' do
     @url = "http://XXXXXX"
@@ -11,7 +13,10 @@ class Server < Sinatra::Base
   end
 
   get '/coffee/app.js' do
-    coffee :'coffee/app'
+    #coffee :'coffee/app'
+    env = Sprockets::Environment.new
+    env.append_path "lib/views/coffee"
+    env["app.coffee"]
   end
 
   # Usage: partial :foo
