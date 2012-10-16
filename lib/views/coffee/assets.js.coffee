@@ -19,6 +19,7 @@ App.assetsController = Em.ArrayController.create({
   # loadAssets action is binded to the button
   loadAssets: ->
     self = this
+    self.clear()
     # ajax request to ask Apiv3
     $.ajax({
       # GET request (see documentation)
