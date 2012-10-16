@@ -29,7 +29,7 @@ App.messagesController = Em.ArrayController.create({
       # fill the messages array on success
       success: (data) ->
         data.forEach( (item) ->
-          item["payload"] = item["b64_payload"].substr 0, 140
+          item["payload"] = Base64.decode64(item["b64_payload"]).substr 0, 140
           item["length"] = number_to_human_size(item["length"])
           item["received_at"] = display_date(item["received_at"])
           self.pushObject(App.Message.create(item))

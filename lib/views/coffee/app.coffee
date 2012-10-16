@@ -1,5 +1,6 @@
 #= require "init"
 #= require "utils"
+#= require "base64"
 #= require "assets"
 #= require "messages"
 #= require "tracks"
