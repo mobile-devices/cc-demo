@@ -1,0 +1,27 @@
+<script type="text/x-handlebars">
+
+	{{#view App.postMessageFormView}}
+		<form class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" for="inpunAccount">Recipient</label>
+		    <div class="controls">
+		      {{view Em.TextField placeholder="Asset." valueBinding="view.asset"}}
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputPassword">Channel</label>
+		    <div class="controls">
+		      {{view Em.TextField placeholder="Channel identifier." valueBinding="view.channel"}}
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputPassword">Payload (b64)</label>
+		    <div class="controls">
+		      {{view Em.TextField placeholder="Content of the message" valueBinding="view.payload"}}
+		    </div>
+		    <button type="submit">Post Message</button>
+		  </div>
+		</form>
+	{{/view}}
+
+</script>
