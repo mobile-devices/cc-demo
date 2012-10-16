@@ -6,7 +6,6 @@
 
 <script type="text/x-handlebars">
 
-    // try this asset: 351732050017568
     {{#view App.mapTracksView}}
     	{{view Em.TextField placeholder="Asset" valueBinding="App.mapTracksView.asset"}}
         <button {{action "loadTracks" target="App.tracksController"}}>
