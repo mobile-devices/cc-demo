@@ -1,7 +1,7 @@
 module WebShell
   def self.load_prerequisites(options={})
     require 'java'
-  
+
     $:.push(File.expand_path("../../vendor/swt/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/tilt/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/rack/lib", __FILE__))
@@ -12,7 +12,9 @@ module WebShell
     $:.push(File.expand_path("../../vendor/execjs/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/coffee-script-source/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/coffee-script/lib", __FILE__))
-  
-    require 'swt'  
+    $:.push(File.expand_path("../../vendor/sprockets/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/hike/lib", __FILE__))
+
+    require 'swt'
   end
 end

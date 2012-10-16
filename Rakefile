@@ -25,6 +25,8 @@ task :init do
     "execjs",
     "coffee-script-source",
     "coffee-script",
+    "sprockets",
+    "hike",
   ]
 
   gems.each do |gem_name|
