@@ -9,11 +9,10 @@ require 'sprockets'
 class Server < Sinatra::Base
   get '/' do
     @url = "http://XXXXXX"
-    erb :index
+    erb :access
   end
 
   get '/coffee/app.js' do
-    #coffee :'coffee/app'
     env = Sprockets::Environment.new
     env.append_path "lib/views/coffee"
     env["app.coffee"]
