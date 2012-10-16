@@ -5,7 +5,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body style="margin:15px">
+  <body style="margin:15px;width:95%; height:100%;">
     <script type="text/x-handlebars">
       {{#view App.MyView}}
         <h1>Hello world!</h1>
@@ -15,23 +15,31 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#access" data-toggle="tab">Access and Control</a></li>
       <li><a href="#assets" data-toggle="tab">Assets</a></li>
-      <li><a href="#map" data-toggle="tab">Map</a></li>
       <li><a href="#messages" data-toggle="tab">Messages</a></li>
+      <li><a href="#post" data-toggle="tab">Post</a></li>
+      <li><a onclick="displayMap()" href="#map" data-toggle="tab">Map</a></li>
     </ul>
-    <div class="tab-content">
+    <div style="width:95%; height:100%;" class="tab-content">
       <div class="tab-pane active" id="access">
         <%= partial :access %>
       </div>
-      <div class="tab-pane active" id="assets">
+      <div class="tab-pane" id="assets">
         <%= partial :assets %>
       </div>
-      <div class="tab-pane" id="map">
+      <div class="tab-pane" id="messages">
+        <%= partial :messages %>
+      </div>
+      <div class="tab-pane" id="post">
+        <%= partial :post %>
+      </div>
+      <div style="width:100%; height:100%;" class="tab-pane" id="map">
         <p><%= partial :index %></p>
       </div>
     </div>
     <%#= yield %>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="js/libs/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/handlebars-1.0.0.beta.6.js"></script>
     <script src="js/libs/ember-1.0.pre.js"></script>
@@ -45,48 +53,20 @@
       "use strict";jQuery.base64=(function($){var _PADCHAR="=",_ALPHA="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",_VERSION="1.0";function _getbyte64(s,i){var idx=_ALPHA.indexOf(s.charAt(i));if(idx===-1){throw"Cannot decode base64"}return idx}function _decode(s){var pads=0,i,b10,imax=s.length,x=[];s=String(s);if(imax===0){return s}if(imax%4!==0){throw"Cannot decode base64"}if(s.charAt(imax-1)===_PADCHAR){pads=1;if(s.charAt(imax-2)===_PADCHAR){pads=2}imax-=4}for(i=0;i<imax;i+=4){b10=(_getbyte64(s,i)<<18)|(_getbyte64(s,i+1)<<12)|(_getbyte64(s,i+2)<<6)|_getbyte64(s,i+3);x.push(String.fromCharCode(b10>>16,(b10>>8)&255,b10&255))}switch(pads){case 1:b10=(_getbyte64(s,i)<<18)|(_getbyte64(s,i+1)<<12)|(_getbyte64(s,i+2)<<6);x.push(String.fromCharCode(b10>>16,(b10>>8)&255));break;case 2:b10=(_getbyte64(s,i)<<18)|(_getbyte64(s,i+1)<<12);x.push(String.fromCharCode(b10>>16));break}return x.join("")}function _getbyte(s,i){var x=s.charCodeAt(i);if(x>255){throw"INVALID_CHARACTER_ERR: DOM Exception 5"}return x}function _encode(s){if(arguments.length!==1){throw"SyntaxError: exactly one argument required"}s=String(s);var i,b10,x=[],imax=s.length-s.length%3;if(s.length===0){return s}for(i=0;i<imax;i+=3){b10=(_getbyte(s,i)<<16)|(_getbyte(s,i+1)<<8)|_getbyte(s,i+2);x.push(_ALPHA.charAt(b10>>18));x.push(_ALPHA.charAt((b10>>12)&63));x.push(_ALPHA.charAt((b10>>6)&63));x.push(_ALPHA.charAt(b10&63))}switch(s.length-imax){case 1:b10=_getbyte(s,i)<<16;x.push(_ALPHA.charAt(b10>>18)+_ALPHA.charAt((b10>>12)&63)+_PADCHAR+_PADCHAR);break;case 2:b10=(_getbyte(s,i)<<16)|(_getbyte(s,i+1)<<8);x.push(_ALPHA.charAt(b10>>18)+_ALPHA.charAt((b10>>12)&63)+_ALPHA.charAt((b10>>6)&63)+_PADCHAR);break}return x.join("")}return{decode:_decode,encode:_encode,VERSION:_VERSION}}(jQuery));
     </script>
     <script type="text/javascript">
-      $('#map_canvas').gmap().bind('init', function() {
-        // This URL won't work on your localhost, so you need to change it
-        // see http://en.wikipedia.org/wiki/Same_origin_policy
-        $.ajax({
-          url: '<%= @url %>',
-          dataType: 'jsonp',
-          data: "q=asset:355131040628343",
-          success: function(data) {
-            $.each( data, function(i, track) {
-              console.log(track);
 
-              if (track.location) {
-                $('#map_canvas').gmap('addMarker', {
-                  'position': new google.maps.LatLng(track.location[1], track.location[0]),
-                  'bounds': true
-                }).click(function() {
-                  var str = "";
-                  var fields = track.fields;
+      function displayMap()
+      {
+        $('#map_canvas').gmap({'center':'48.8576,2.353449', 'zoom':'4'}); 
+        setTimeout(function () { google.maps.event.trigger($('#map_canvas')[0], 'resize'); }, 500);
+      }
 
-                  $.each( track.fields, function(key, value) {
-                    str = str + key + ": "
-                    if ( value.converted_value !== undefined ) {
-                      str = str + value.converted_value
-                    } else if ( value.decoded_value !== undefined ) {
-                      str = str + value.decoded_value
-                    } else {
-                      str = str + value.b64_value + ' (base64)'
-                    }
-
-                    str = str + "<br/>"
-                  })
-                  if (str != "" ) {
-                    $('#map_canvas').gmap('openInfoWindow', { 'content': "" + str }, this);
-                  } else {
-                    $('#map_canvas').gmap('closeInfoWindow');
-                  }
-                });
-              }
-            });
-          }
+     $('#map_canvas').gmap().bind('init', function(ev, map) {
+         $('#map_canvas').gmap({'center':'48.8576,2.353449', 'zoom':'4'});
+        $('#map_canvas').gmap('addMarker', {'position': '48.8576,2.353449', 'bounds': true}).click(function() {
+          $('#map_canvas').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
         });
       });
+
     </script>
   </body>
 </html>
