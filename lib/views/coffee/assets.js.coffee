@@ -28,7 +28,6 @@ App.assetsController = Em.ArrayController.create({
       data: "",
       # fill the assets array on success
       success: (data) ->
-        save = App.baseUrl('assets') + "q=asset:355131040628343"
         data.forEach( (item) ->
           self.pushObject(App.Asset.create(item))
         )
