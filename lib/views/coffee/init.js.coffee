@@ -4,7 +4,7 @@ window.App = App = Em.Application.create({
   account:  'Demo',
   token:    'demotoken',
   getToken:  () ->
-    self.token
+    this.token
   baseUrl:  (path) ->
     self = this
     "http://" + this.account + ".integration.cloudconnect.io/api/v3/" + path + '.jsonp?_token=' + this.token
