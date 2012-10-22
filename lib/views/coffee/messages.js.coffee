@@ -29,11 +29,18 @@ App.messagesController = Em.ArrayController.create({
       data: "",
       # fill the messages array on success
       success: (data) ->
-        data.forEach( (item) ->
-          item["payload"] = Base64.decode64(item["b64_payload"]).substr 0, 140
-          item["length"] = number_to_human_size(item["length"])
-          item["received_at"] = display_date(item["received_at"])
-          self.pushObject(App.Message.create(item))
-        )
+        if data.length <= 0
+          window.alert "No message to display"
+        else
+          data.forEach( (item) ->
+            item["payload"] = Base64.decode64(item["b64_payload"]).substr 0, 140
+            item["length"] = number_to_human_size(item["length"])
+            item["received_at"] = display_date(item["received_at"])
+            self.pushObject(App.Message.create(item))
+          )
+      # display the "error status" on error
+      error: (xhr, ajaxOptions, thrownError) ->
+        alert(xhr.status);
+        alert(thrownError);
     })
 });
