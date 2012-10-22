@@ -14,6 +14,7 @@ module WebShell
     $:.push(File.expand_path("../../vendor/coffee-script/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/sprockets/lib", __FILE__))
     $:.push(File.expand_path("../../vendor/hike/lib", __FILE__))
+    $:.push(File.expand_path("../../vendor/json/lib", __FILE__))
 
     require 'swt'
   end
