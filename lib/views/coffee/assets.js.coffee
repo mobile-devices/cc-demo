@@ -29,8 +29,15 @@ App.assetsController = Em.ArrayController.create({
       data: "",
       # fill the assets array on success
       success: (data) ->
-        data.forEach( (item) ->
-          self.pushObject(App.Asset.create(item))
-        )
+        if data.length <= 0
+          window.alert "No asset to display"
+        else
+          data.forEach( (item) ->
+            self.pushObject(App.Asset.create(item))
+          )
+      # display the "error status" on error
+      error: (xhr, ajaxOptions, thrownError) ->
+        alert(xhr.status);
+        alert(thrownError);
     })
 });
