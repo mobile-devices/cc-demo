@@ -9,7 +9,7 @@ App.postMessageFormView = Em.View.extend({
     # action on form submit
     submit: (e) ->
       # data from the form
-      post_data = 'url=' + App.baseUrl('messages') + '&token=' + App.token() + '&recipient=' + this.get('asset') + '&asset=' + this.get('asset') + '&channel=' + this.get('channel') + '&b64_payload=' + this.get('payload')
+      post_data = 'url=' + App.baseUrl('messages') + '&token=' + App.getToken() + '&recipient=' + this.get('asset') + '&asset=' + this.get('asset') + '&channel=' + this.get('channel') + '&b64_payload=' + this.get('payload')
       $.ajax({
         # POST request (see server.rb /message)
         url: '/message',
