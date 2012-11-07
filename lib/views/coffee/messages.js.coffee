@@ -9,7 +9,8 @@ App.Message = Em.Object.extend({
 
 # definition of the button
 App.messagesViewController = Em.View.extend({
-  buttonName: 'Loads Messages',
+  getmessages: 'Get Messages',
+  refresh: 'Refresh',
 });
 
 # Messages controller used by messages.erb

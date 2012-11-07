@@ -1,10 +1,16 @@
 <script type="text/x-handlebars">
 
-	{{#view App.messagesViewController}}
-		<button {{action "loadMessages" target="App.messagesController"}}>
-	    	{{view.buttonName}}
-	    </button>
-    {{/view}}
+	<div class="button_block">
+		{{#view App.messagesViewController}}
+			<button class="btn" {{action "loadMessages" target="App.messagesController"}}>
+			{{#if App.messagesController.length}}
+		    	{{view.refresh}}
+		    {{else}}
+		    	{{view.getmessages}}
+		    {{/if}}
+		    </button>
+	    {{/view}}
+	</div>
 
 	<br />
 
