@@ -14,17 +14,21 @@ App.tracksController = Em.Object.create({
         if data.length <= 0
           window.alert "No track to display"
         else
+          i = 0
+          for marker in marker_source
+            map.removeLayer(marker_source[i++])
+          i = 0
           for track in data
             if track.latitude
-              $('#map_canvas').gmap('addMarker', {
-                    'position': new google.maps.LatLng(track.latitude / Math.pow(10, 5), track.longitude / Math.pow(10, 5)),
-                    'bounds': true
-              }).click ->
-                # display fields from a track on click event
-                str = "";
-                $.each track.fields, (key, value) ->
-                  str = str + key + ": "
-                window.alert str
+              lat = track.latitude / Math.pow(10, 5)
+              lng = track.longitude / Math.pow(10, 5)
+              marker_source[i] = L.marker([lat, lng]).addTo(map);
+              # display fields from a track on click event
+              str = "";
+              $.each track.fields, (key, value) ->
+                str = str + key + "<br />"
+              marker_source[i++].bindPopup(str);
+          map.setView([lat, lng], 13, true);
       # display the "error status" on error
       error: (xhr, ajaxOptions, thrownError) ->
         alert(xhr.status);
