@@ -1,10 +1,12 @@
 <script type="text/x-handlebars">
 
+	<div class="button_block">
 	{{#view App.assetsViewController}}
-		<button {{action "loadAssets" target="App.assetsController"}}>
+		<button class="btn" {{action "loadAssets" target="App.assetsController"}}>
 	    	{{view.buttonName}}
 	    </button>
     {{/view}}
+    </div>
 
 	<br />
 
