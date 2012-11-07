@@ -31,7 +31,7 @@ App.tracksController = Em.Object.create({
           map.setView([lat, lng], 13, true);
       # display the "error status" on error
       error: (xhr, ajaxOptions, thrownError) ->
-        alert(xhr.status);
+        alert('Error: ' + xhr.status);
         alert(thrownError);
     })
 });

@@ -37,7 +37,7 @@ App.assetsController = Em.ArrayController.create({
           )
       # display the "error status" on error
       error: (xhr, ajaxOptions, thrownError) ->
-        alert(xhr.status);
+        alert('Error: ' + xhr.status);
         alert(thrownError);
     })
 });

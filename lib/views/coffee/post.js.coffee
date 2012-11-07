@@ -21,7 +21,7 @@ App.postMessageFormView = Em.View.extend({
          alert("Message sent!");
         # display the "error status" on error
         error: (xhr, ajaxOptions, thrownError) ->
-          alert(xhr.status);
+          alert('Error: ' + xhr.status);
           alert(thrownError);
       })
 });
