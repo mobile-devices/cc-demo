@@ -6,12 +6,16 @@
 
 <script type="text/x-handlebars">
 
+    <div class="button_block">
     {{#view App.mapTracksView}}
     	{{view Em.TextField placeholder="Asset" valueBinding="App.mapTracksView.asset"}}
-        <button {{action "loadTracks" target="App.tracksController"}}>
-            {{view.name}}
-        </button>
+        <div class="button_tracks">
+          <button class="btn" {{action "loadTracks" target="App.tracksController"}}>
+              {{view.name}}
+          </button>
+        </div>
     {{/view}}
+    </div>
 
 </script>
 
