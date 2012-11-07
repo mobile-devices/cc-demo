@@ -3,16 +3,22 @@
 	<div class="button_block">
 	{{#view App.assetsViewController}}
 		<button class="btn" {{action "loadAssets" target="App.assetsController"}}>
-	    	{{view.buttonName}}
+			{{#if App.assetsController.length}}
+		    	{{view.refresh}}
+		    {{else}}
+		    	{{view.getassets}}
+		    {{/if}}
 	    </button>
     {{/view}}
     </div>
 
 	<br />
 
+	{{#if App.assetsController.length}}
 	{{#each App.assetsController}}
   		{{description}} {{imei}} {{name}} {{serial}}
   		<br />
 	{{/each}}
+	{{/if}}
 
 </script>

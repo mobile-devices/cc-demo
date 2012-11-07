@@ -8,7 +8,8 @@ App.Asset = Em.Object.extend({
 
 # definition of the button
 App.assetsViewController = Em.View.extend({
-  buttonName: 'Get Assets', 
+  getassets: 'Get Assets',
+  refresh: 'Refresh',
 });
 
 # assets controller used by assets.erb
