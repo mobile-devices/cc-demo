@@ -66,3 +66,15 @@ table.data tbody td {
     height: 3.61ex;
     padding: 2px 12px;
 }
+
+.button_block {
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+}
+
+.button_tracks {
+    height: 50px;
+    width: 130px;
+    float: right;
+}
