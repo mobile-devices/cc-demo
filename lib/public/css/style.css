@@ -88,3 +88,30 @@ table.data tbody td {
     width: 130px;
     float: right;
 }
+
+.form_post_input {
+    float: right;
+    width: 225px;
+    margin-left: 10px;
+}
+
+.form_post_label {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
+    text-align: right;
+    width: 90px;
+}
+
+.form_post_block {
+    margin-left: 60px;
+    width: 325px;
+    height: 50px;
+}
+
+.form_post_submit {
+    margin-top: 10px;
+    width: 325px;
+    text-align: center;
+}
