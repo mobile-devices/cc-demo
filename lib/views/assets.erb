@@ -15,10 +15,32 @@
 	<br />
 
 	{{#if App.assetsController.length}}
+    <table class="data search_cloud_connect_asset">
+    	<colgroup>
+			<col class="description">
+			<col class="imei">
+			<col class="name">
+			<col class="serial">
+		</colgroup>
+		<thead>
+			<tr>
+				<th> Description </th>
+				<th> IMEI </th>
+				<th> Name </th>
+				<th> Serial </th>
+			</tr>
+		</thead>
+		<tbody>
 	{{#each App.assetsController}}
-  		{{description}} {{imei}} {{name}} {{serial}}
-  		<br />
+			<tr class="cloud_connect_asset">
+			  <td class="description">{{description}}</td>
+			  <td class="imei">{{imei}}</td>
+			  <td class="name">{{name}}</td>
+			  <td class="serial">{{serial}}</td>
+			</tr>
 	{{/each}}
+		</tbody>
+	</table>
 	{{/if}}
 
 </script>

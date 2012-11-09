@@ -53,6 +53,16 @@ table.data.search_cloud_connect_message col.received_at {
     width: 16ex;
 }
 
+table.data.search_cloud_connect_asset col.imei {
+    width: 20ex;
+}
+table.data.search_cloud_connect_asset col.name {
+    width: 25ex;
+}
+table.data.search_cloud_connect_asset col.serial {
+    width: 20ex;
+}
+
 table.data thead tr, table.data tr.total {
     background: -moz-linear-gradient(center top , #FDFCFD 0%, #F2F2F2 8%, #E7E7E7 100%) repeat scroll 0 0 transparent;
 }
