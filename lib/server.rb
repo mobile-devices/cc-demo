@@ -1,11 +1,11 @@
 #require "rubygems"
 #require "bundler/setup"
-require 'sinatra/base'
-require 'coffee-script'
 module Rhino
   JAR_PATH = File.expand_path('vendor/therubyrhino_jar/jar/rhino-1.7R4.jar')
 end
 require 'rhino'
+require 'sinatra/base'
+require 'coffee-script'
 require 'execjs'
 require 'sprockets'
 require 'json'
