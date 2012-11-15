@@ -44,23 +44,23 @@ table.data th, table.data td {
 }
 
 table.data.search_cloud_connect_message col.thread_id {
-    width: 17ex;
+    width: 23ex;
 }
 table.data.search_cloud_connect_message col.length {
-    width: 12ex;
+    width: 15ex;
 }
 table.data.search_cloud_connect_message col.received_at {
-    width: 16ex;
+    width: 19ex;
 }
 
 table.data.search_cloud_connect_asset col.imei {
-    width: 20ex;
-}
-table.data.search_cloud_connect_asset col.name {
     width: 25ex;
 }
+table.data.search_cloud_connect_asset col.name {
+    width: 30ex;
+}
 table.data.search_cloud_connect_asset col.serial {
-    width: 20ex;
+    width: 25ex;
 }
 
 table.data thead tr, table.data tr.total {
