@@ -21,6 +21,7 @@ task :init do
     "rack-protection",
     "tilt",
     "therubyrhino",
+    "therubyrhino_jar",
     "multi_json",
     "execjs",
     "coffee-script-source",
