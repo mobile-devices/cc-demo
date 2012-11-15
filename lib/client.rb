@@ -27,10 +27,6 @@ class Browser
   def start
     display = Swt::Widgets::Display.get_current
   
-    Thread.new do
-      require 'server'
-    end
-  
     # until the window (the Shell) has been closed
     while !@shell.isDisposed
   

@@ -19,7 +19,7 @@ Thread.new do
   Server.run!
 end
 
-sleep 3
+sleep 10
 
 @@app = Browser.new
 @@app.start
