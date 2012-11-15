@@ -24,4 +24,5 @@ App.postMessageFormView = Em.View.extend({
           alert('Error: ' + xhr.status);
           alert(thrownError);
       })
+      return false
 });
